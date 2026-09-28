@@ -1,0 +1,15 @@
+[project]
+name = "android-store-screenshot-kit"
+version = "0.1.0"
+description = "Reusable Firebase Test Lab screenshot and Android APK verification tooling"
+requires-python = ">=3.11"
+license = "GPL-3.0-only"
+
+[project.scripts]
+store-screenshots = "store_screenshots:main"
+
+[tool.setuptools]
+py-modules = ["store_screenshots"]
+
+[tool.ruff]
+line-length = 100

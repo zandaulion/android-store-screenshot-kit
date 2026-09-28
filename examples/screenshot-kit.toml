@@ -1,0 +1,36 @@
+[app]
+# All relative paths resolve from this file's directory.
+root = "."
+build = ["./gradlew", ":app:assembleDebug", ":app:assembleDebugAndroidTest"]
+app_apk = "app/build/outputs/apk/debug/app-debug.apk"
+test_apk = "app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
+package_name = "com.example.app"
+test_target = "class com.example.app.PlayStoreScreenshotTest"
+remote_directory = "/sdcard/Android/data/com.example.app/files/screenshots"
+results_dir = "results/play-store-screenshots"
+publish_dir = "play-store/screenshots/tablet"
+
+[firebase]
+project = "${FIREBASE_PROJECT}"
+history_name = "Play Store Screenshots"
+timeout = "15m"
+
+[validation]
+expected_count = 6
+width = 1600
+height = 2560
+require_rgb = true
+
+[[devices]]
+id = "medium-tablet"
+model = "MediumTablet.arm"
+version = "35"
+locale = "en"
+orientation = "portrait"
+
+[[devices]]
+id = "pixel-tablet"
+model = "tangorpro"
+version = "36"
+locale = "en"
+orientation = "portrait"
