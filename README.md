@@ -18,6 +18,14 @@ Each application retains a small instrumentation test that knows how to seed its
 own data and navigate its own screens. This division keeps product internals out
 of the shared tool while avoiding repeated cloud and artifact plumbing.
 
+
+[Integration guide](docs/INTEGRATION.md) · [Example configuration](examples/screenshot-kit.toml)
+· [Local checks](#local-checks) · [Project overview](https://zandaulion.com/screenshotkit.html)
+
+The CLI and validation commands run locally. Submitting a Test Lab run needs your
+own cloud project and may consume billed quota; no credentials or application
+fixtures are supplied by this kit.
+
 ## Requirements
 
 - Python 3.11 or newer
@@ -43,7 +51,7 @@ No Python packages are required.
 3. Copy `templates/PlayStoreScreenshotTest.kt` into the app's `androidTest`
    source set. Replace the fixture setup and navigation with app-specific code.
 4. Optionally include the `harness` Android library as described in
-   `docs/INTEGRATION.md`.
+   [the integration guide](docs/INTEGRATION.md).
 5. Authenticate the Google Cloud CLI and export the project identifier:
 
    ```bash
@@ -99,3 +107,27 @@ Copyright (C) 2026 zandaulion and contributors.
 
 This project is licensed under the GNU General Public License, version 3 only.
 See [LICENSE](LICENSE).
+
+## Local checks
+
+From the repository root, use Python 3.11 or newer:
+
+```bash
+python3 -m unittest discover -s tests -v
+bin/store-screenshots --help
+```
+
+These unit tests create temporary synthetic files and do not submit Test Lab runs.
+To build the standalone harness, use the included Gradle wrapper with its configured
+JDK 25 daemon toolchain and an installed Android SDK. Gradle may provision that
+toolchain on first use. An application embedding the harness uses its own Gradle
+and AGP setup; follow the integration guide instead of replacing the app’s toolchain.
+
+
+## Support and contributions
+
+Use this repository’s Issues for reproducible bugs and focused feature requests. Include the version, relevant runtime/browser, expected behavior and a minimal synthetic example. Remove credentials, personal records, device identifiers and deployment-specific values before sharing logs or screenshots.
+
+Run the local checks above. Keep application-specific seed data and navigation in the consuming application, not the shared harness.
+
+Keep changes focused and update the affected documentation. Security-sensitive reports should follow [SECURITY.md](SECURITY.md).
