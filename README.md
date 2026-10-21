@@ -22,6 +22,12 @@ of the shared tool while avoiding repeated cloud and artifact plumbing.
 [Integration guide](docs/INTEGRATION.md) · [Example configuration](examples/screenshot-kit.toml)
 · [Local checks](#local-checks) · [Project overview](https://zandaulion.com/screenshotkit.html)
 
+Download the [v0.1.0 developer kit](https://github.com/zandaulion/android-store-screenshot-kit/releases/tag/v0.1.0)
+for the CLI, optional Android harness, synthetic example configuration, and
+integration guide in one ZIP. Download `SHA256SUMS` alongside it and run
+`sha256sum --check SHA256SUMS` before extracting. The kit contains source code,
+not an application APK or ready-made store screenshots.
+
 The CLI and validation commands run locally. Submitting a Test Lab run needs your
 own cloud project and may consume billed quota; no credentials or application
 fixtures are supplied by this kit.
@@ -105,8 +111,8 @@ project identifiers and keep service-account material outside source control.
 
 Copyright (C) 2026 zandaulion and contributors.
 
-This project is licensed under the GNU General Public License, version 3 only.
-See [LICENSE](LICENSE).
+The original code and documentation are licensed under
+[GPL-3.0-or-later](LICENSE). The Gradle wrapper retains its upstream license.
 
 ## Local checks
 
