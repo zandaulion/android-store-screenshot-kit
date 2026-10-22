@@ -1,5 +1,7 @@
 # Android Store Screenshot Kit
 
+[![Tests](https://github.com/zandaulion/android-store-screenshot-kit/actions/workflows/tests.yml/badge.svg)](https://github.com/zandaulion/android-store-screenshot-kit/actions/workflows/tests.yml)
+
 A reusable Firebase Test Lab pipeline for producing deterministic Google Play
 screenshots from real Android applications.
 
@@ -115,6 +117,11 @@ The original code and documentation are licensed under
 [GPL-3.0-or-later](LICENSE). The Gradle wrapper retains its upstream license.
 
 ## Local checks
+
+GitHub Actions runs the unit tests and CLI smoke checks on Python 3.11 and 3.13,
+and assembles and lints the Android harness with JDK 25. Checks run on pushes,
+pull requests, and manual workflow dispatches. CI uses synthetic configuration;
+it needs no Firebase credentials and submits no Test Lab runs.
 
 From the repository root, use Python 3.11 or newer:
 
