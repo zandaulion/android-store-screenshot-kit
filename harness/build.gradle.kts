@@ -18,5 +18,5 @@ android {
 
 dependencies {
     api("androidx.test:core:1.6.1")
-    api("androidx.test.uiautomator:uiautomator:2.3.0")
+    api("androidx.test.uiautomator:uiautomator:2.4.0")
 }
